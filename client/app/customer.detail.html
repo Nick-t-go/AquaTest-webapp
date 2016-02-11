@@ -1,0 +1,11 @@
+<form style="width: 50%; margin: 0 auto;">
+    <div class="form-group">
+        <label for=""></label>
+        <input class="form-control" type="text" placeholder="name" ng-model="customer.name">
+        <input class="form-control" type="text" placeholder="email" ng-model="customer.email">
+        <input class="form-control" type="number" ng-model="customer.age">
+        <input class="form-control" type="text" placeholder="sex" ng-model="customer.sex">
+        <button class="btn btn-success" ng-click="updateCustomer(customer._id, customer)">Update</button>
+        <button class="btn btn-danger" ng-click="deleteCustomer()">Delete</button>
+    </div>
+</form>

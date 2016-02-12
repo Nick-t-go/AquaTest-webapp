@@ -7,17 +7,51 @@
         <md-button class="md-raised md-accent">Login</md-button>
     </div>
 </div>
-<div layout="row" class="banner" >
-    <video autoplay loop id="bgvid">
-        <source src="media/bubbles.mp4" type="video/mp4">
-    </video>
+
+<div class="relative" layout="row" layout-padding >
+    <div layout="row" class="banner" >
+        <video autoplay loop id="bgvid">
+            <source src="media/bubbles.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div  flex="66" flex-offset="15" id="title-box">
+        <h1>AquaTest</h1>
+        <p>Your Aquatic Homeostasis Tool
+        <p><a href="https://play.google.com/store/apps/details?id=com.aquatest.app&hl=en">Download The App</a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
+        <button>Pause</button>
+    </div>
 </div>
 
-<div  flex="66" flex-offset="15" id="title-box">
-    <h1>AquaTest</h1>
-    <p>filmed by Alexander Wagner 2011
-    <p><a href="//demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-Background-Video">original article</a>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
-    <p>Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.</p>
-    <button>Pause</button>
+
+<div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div layout="row" layout-xs="column" layout-align="center center">
+            <div flex="33" ng-repeat="item in intro.infoBox">
+                <div class="icon-block" layout-margin>
+                    <div layout="column"  layout-align="center center">
+                        <h2 class="center brown-text"><i class="material-icons">{{item.name}}</i></h2>
+                        <md-icon class="s48" md-svg-src={{item.imgUrl}}></md-icon>
+                        <p class="light">{{item.line}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div layout="row" layout-align="center center" class="sub-header">
+    <h2 class="white-sub">Throw Away Your Scribbled Recordings, Stop Wasting Time in Excel</h2>
+</div>
+
+<div class="sub-container">
+    <div class="section">
+        <h2 layout ="row" layout-align="center center" layout-margin >About Us</h2>
+        <div layout="column" class="about" ng-repeat="subSection in intro.about">
+            <h2 class="special-font">{{subSection.header}}</h2>
+            <p>{{subSection.description}}</p>
+        </div>
+    </div>
 </div>

@@ -7,7 +7,7 @@ app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia){
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
 
-    $scope.showTabDialog = function(ev) {
+    $scope.showTabDialog = function(ev, button) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
         $mdDialog.show({
             controller: 'SignUpCTRL',

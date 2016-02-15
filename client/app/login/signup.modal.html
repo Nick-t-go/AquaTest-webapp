@@ -1,44 +1,56 @@
 
 
-<md-dialog aria-label="Mango (Fruit)">
+<md-dialog aria-label="Login">
     <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>Login</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon aria-label="Close dialog"></md-icon>
-                    <!--md-svg-src="img/icons/ic_close_24px.svg"-->
-                </md-button>
-            </div>
-        </md-toolbar>
+        <!--<md-toolbar>-->
+            <!--<div class="md-toolbar-tools">-->
+                <!--<h2>Login</h2>-->
+                <!--<span flex></span>-->
+                <!--<md-button class="md-icon-button" ng-click="cancel()">-->
+                    <!--<md-icon aria-label="Close dialog"></md-icon>-->
+                    <!--&lt;!&ndash;md-svg-src="img/icons/ic_close_24px.svg"&ndash;&gt;-->
+                <!--</md-button>-->
+            <!--</div>-->
+        <!--</md-toolbar>-->
         <md-dialog-content style="max-width:800px;max-height:810px; ">
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Login">
                     <md-content class="md-padding">
-                        <h1 class="md-display-2">Log In</h1>
-                        <p>Login here or click sign up to create a new account.</p>
+                        <div>
+                            <p> Please Enter Your Email and Password to Login</p>
+                            <md-input-container layout="row">
+                                <md-icon md-svg-src="media/images/ic_email_white_24px.svg" class="email"></md-icon>
+                                <input ng-model="user.email" type="email" placeholder="Email" ng-required="true">
+                            </md-input-container>
+                            <md-input-container layout="row">
+                                <md-icon md-svg-src="media/images/ic_lock_outline_white_24px.svg" class="password"></md-icon>
+                                <input ng-model="user.password" type="password" placeholder="Password" ng-required="true">
+                            </md-input-container>
+                        </div>
                     </md-content>
                 </md-tab>
                 <md-tab label="Sign Up">
                     <md-content class="md-padding">
-                        <h1 class="md-display-2">Sign Up</h1>
-                        <p>Sign Up here</p>
+                        <div>
+                            <p>Please Enter an Email and a Password to Signup</p>
+                            <md-input-container layout="row">
+                                <md-icon md-svg-src="media/images/ic_email_black_24px.svg" class="email"></md-icon>
+                                <input ng-model="newUser.email" type="email" placeholder="Email" ng-required="true">
+                            </md-input-container>
+                            <md-input-container layout="row">
+                                <md-icon md-svg-src="media/images/ic_lock_black_24px.svg" class="password"></md-icon>
+                                <input ng-model="newUser.password" type="password" placeholder="Password" ng-required="true">
+                            </md-input-container>
+                            <md-input-container layout="row">
+                                <md-icon md-svg-src="media/images/ic_lock_black_24px.svg" class="password"></md-icon>
+                                <input ng-model="newUser.passwordVerify" type="password" placeholder="Confirm Password" ng-required="true">
+                            </md-input-container>
+                        </div>
                     </md-content>
                 </md-tab>
             </md-tabs>
         </md-dialog-content>
         <md-dialog-actions layout="row">
-            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-                More on Wikipedia
-            </md-button>
-            <span flex></span>
-            <md-button ng-click="answer('not useful')" >
-                Not Useful
-            </md-button>
-            <md-button ng-click="answer('useful')" style="margin-right:20px;" >
-                Useful
-            </md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>

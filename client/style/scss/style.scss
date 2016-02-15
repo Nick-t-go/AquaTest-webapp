@@ -8,6 +8,7 @@ div .nav-dark {
 
 html, body{
   background: transparent;
+  overflow-x:hidden;
 }
 
 video {
@@ -23,6 +24,7 @@ video {
   //background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
+  overflow-x: hidden;
 }
 .stopfade {
   opacity: .5;
@@ -137,4 +139,9 @@ md-dialog {
   max-height: 90% !important;
 }
 
+
+
+.email svg, .password svg{
+  fill: black;
+}
 

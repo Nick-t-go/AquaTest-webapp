@@ -3,7 +3,8 @@ div .nav-dark {
   background: lightgreen; }
 
 html, body {
-  background: transparent; }
+  background: transparent;
+  overflow-x: hidden; }
 
 video {
   position: absolute;
@@ -16,7 +17,8 @@ video {
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
-  transition: 1s opacity; }
+  transition: 1s opacity;
+  overflow-x: hidden; }
 
 .stopfade {
   opacity: .5; }
@@ -98,5 +100,8 @@ html, body {
 md-dialog {
   max-width: 90% !important;
   max-height: 90% !important; }
+
+.email svg, .password svg {
+  fill: black; }
 
 /*# sourceMappingURL=style.css.map */

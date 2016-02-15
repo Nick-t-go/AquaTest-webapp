@@ -22,12 +22,15 @@
             <md-button class="md-fab md-primary" aria-label="Use Android">
                 <md-icon md-svg-src="media/images/ic_android_white_24px.svg"></md-icon>
             </md-button>
-            <md-button layout="column" layout-align="center center" class="md-primary" ng-href="https://play.google.com/store/apps/details?id=com.aquatest.app&hl=en" target="_blank">Download The App</md-button>
+            <md-button layout="column" layout-align="center center" class="md-primary" ng-href="https://play.google.com/store/apps/details?id=com.aquatest.app&hl=en" target="_blank"><b>Download The App</b></md-button>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
-        <md-button ng-click="showTabDialog($event)" class="md-raised md-primary">Login</md-button>
-        <md-button ng-click="showTabDialog($event)" class="md-raised md-primary">Signup</md-button>
-        <md-button class="md-raised md-primary">About</md-button>
+        <p>AquaTest is your personal record keeping application for all your water test needs. Record test results. View past results. Summarize data.
+        Compare and contrast results. AquaTest saves all results in the cloud for free.<br> Try it today...or tomorrow, we can wait!</p>
+        <div layout="row" layout-align="center center">
+            <md-button ng-click="showTabDialog($event, 'login')" class="md-raised md-primary">Login</md-button>
+            <md-button ng-click="showTabDialog($event, 'signup')" class="md-raised md-primary">Signup</md-button>
+            <md-button class="md-raised md-primary" ng-href="#about">About</md-button>
+        </div>
     </div>
 </div>
 
@@ -54,7 +57,7 @@
 </div>
 
 <div class="sub-container">
-    <div class="section">
+    <div id="about" class="section">
         <h2 layout ="row" layout-align="center center" layout-margin >About Us</h2>
         <div layout="column" class="about" ng-repeat="subSection in intro.about">
             <h2 class="special-font">{{subSection.header}}</h2>
@@ -62,3 +65,9 @@
         </div>
     </div>
 </div>
+
+<footer>
+    <div layout="row" layout-align="center center">
+        <h2>My Awesome Footer</h2>
+    </div>
+</footer>

@@ -1,12 +1,12 @@
-<div layout="row"  class="nav-dark" layout-align="space-between center">
-    <div>
-        <md-button>About</md-button>
-        <md-button>Contact</md-button>
-    </div>
-    <div class="nav-buttons">
-        <md-button class="md-raised md-accent">Login</md-button>
-    </div>
-</div>
+<!--<div layout="row"  class="nav-dark" layout-align="space-between center">-->
+    <!--<div>-->
+        <!--<md-button>About</md-button>-->
+        <!--<md-button>Contact</md-button>-->
+    <!--</div>-->
+    <!--<div class="nav-buttons">-->
+        <!--<md-button class="md-raised md-accent">Login</md-button>-->
+    <!--</div>-->
+<!--</div>-->
 
 <div class="relative" layout="row" layout-padding >
     <div layout="row" class="banner" >
@@ -16,11 +16,18 @@
     </div>
 
     <div  flex="66" flex-offset="15" id="title-box">
-        <h1>AquaTest</h1>
-        <p>Your Aquatic Homeostasis Tool
-        <p><a href="https://play.google.com/store/apps/details?id=com.aquatest.app&hl=en">Download The App</a>
+        <h1 id="center">AquaTest</h1>
+        <p>Your Aquatic Homeostasis Tool</p>
+        <div layout="row">
+            <md-button class="md-fab md-primary" aria-label="Use Android">
+                <md-icon md-svg-src="media/images/ic_android_white_24px.svg"></md-icon>
+            </md-button>
+            <md-button layout="column" layout-align="center center" class="md-primary" ng-href="https://play.google.com/store/apps/details?id=com.aquatest.app&hl=en" target="_blank">Download The App</md-button>
+        </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
-        <button>Pause</button>
+        <md-button ng-click="showTabDialog($event)" class="md-raised md-primary">Login</md-button>
+        <md-button ng-click="showTabDialog($event)" class="md-raised md-primary">Signup</md-button>
+        <md-button class="md-raised md-primary">About</md-button>
     </div>
 </div>
 

@@ -26,8 +26,10 @@
                                 <md-icon md-svg-src="media/images/ic_lock_outline_white_24px.svg" class="password"></md-icon>
                                 <input ng-model="user.password" type="password" placeholder="Password" ng-required="true">
                             </md-input-container>
-                            <md-button class="md-raised md-primary">Submit</md-button>
-                            <md-button ng-click="hide()" class="md-raised md-warn">Cancel</md-button>
+                            <md-button class="md-raised md-primary">Submit     <md-icon md-svg-src="media/images/enter.svg" aria-label="login icon"></md-icon></md-button>
+                            <md-button class="md-raised md-accent">Google Login     <md-icon md-svg-src="media/images/google-plus.svg" aria-label="google icon"></md-icon></md-button>
+
+                            <md-button ng-click="hide()" class="md-raised md-warn">Cancel      <md-icon md-svg-src="media/images/cancel-circle.svg" aria-label="cancel icon"></md-icon></md-button>
                         </div>
                     </md-content>
                 </md-tab>
@@ -47,8 +49,8 @@
                                 <md-icon md-svg-src="media/images/ic_lock_black_24px.svg" class="password"></md-icon>
                                 <input ng-model="newUser.passwordVerify" type="password" placeholder="Confirm Password" ng-required="true">
                             </md-input-container>
-                            <md-button class="md-raised md-primary">Submit</md-button>
-                            <md-button ng-click="hide()" class="md-raised md-warn">Cancel</md-button>
+                            <md-button class="md-raised md-primary">Signup      <md-icon md-svg-src="media/images/clipboard.svg" aria-label="clipboard icon"></md-icon> </md-button>
+                            <md-button ng-click="hide()" class="md-raised md-warn">Cancel      <md-icon md-svg-src="media/images/cancel-circle.svg" aria-label="cancel icon"></md-icon> </md-button>
                         </div>
                     </md-content>
                 </md-tab>

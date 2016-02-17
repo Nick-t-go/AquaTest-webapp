@@ -1,6 +1,6 @@
 'use strict';
 
-window.app = angular.module('aquaTest', ['ui.router', 'ngMaterial']);
+window.app = angular.module('aquaTest', ['ui.router', 'ngMaterial', 'firebase']);
 
 
 app.config(function ($urlRouterProvider, $locationProvider) {

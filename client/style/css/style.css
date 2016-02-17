@@ -88,7 +88,7 @@ html, body {
 
 .about {
   padding: 0px 20px 20px 20px;
-  border-bottom: solid 1px black; }
+  border-bottom: dotted 2px black; }
 
 .md-dialog-container, .md-backdrop {
   position: absolute !important;

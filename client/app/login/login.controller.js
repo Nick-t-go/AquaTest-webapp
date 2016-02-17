@@ -8,12 +8,14 @@ app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia){
 
 
     $scope.showTabDialog = function(ev, button) {
+        $scope.active = button;
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
         $mdDialog.show({
             controller: 'SignUpCTRL',
             templateUrl: 'app/login/signup.modal.html',
             parent: angular.element(document.h1),
             targetEvent: ev,
+            locals: {pushed: $scope.active},
             clickOutsideToClose:true,
             openFrom: '#center',
             fullscreen: useFullScreen

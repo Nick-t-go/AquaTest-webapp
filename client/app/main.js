@@ -22,6 +22,13 @@ app.config(function($urlRouterProvider, $stateProvider){
             controller: 'loginCTRL'
         });
 
+    $stateProvider
+        .state('dashboard',{
+            url:'/dashboard',
+            templateUrl: '/app/dashboard/index.html',
+            controller: 'dashboardCTRL'
+        });
+
     $urlRouterProvider.otherwise('/');
 
 });

@@ -1,42 +1,54 @@
 <nav-bar></nav-bar>
+<div>
+    <md-button ng-click="toggleLeft()">Open</md-button>
+    <md-button ng-click="changeSomething()">Change</md-button>
+    <md-button>Open</md-button>
+    <md-button>Open</md-button>
+    Where is this text at</div>
+    <div ng-show="menuSelection === 'record'">record</div>
+    <div ng-show="menuSelection === 'testSummary'">test summary</div>
+    <div ng-show="menuSelection === 'pastTest'">record </div>
+
 
 <div layout="column" style="height:500px;" ng-cloak>
     <section layout="row" flex>
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2 " md-component-id="left" md-is-locked-open="true">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2 " md-component-id="left" md-is-locked-open="{{something}}">
             <md-toolbar class="md-primary md-hue-1">
                 <h1  class="dash-element md-toolbar-tools ">Water Tests</h1>
             </md-toolbar>
             <md-list>
-                <md-list-item ng-click="console.log('here')">
+                <md-list-item ng-click="menuSelect('record')">
                     <md-icon md-svg-icon="media/images/ic_assignment_black_24px.svg"></md-icon>
                     <p>Record New Test Results</p>
                 </md-list-item>
-                <md-list-item ng-click="console.log('here')">
+                <md-list-item ng-click="menuSelect('testSummary')">
                     <md-icon md-svg-icon="media/images/ic_insert_chart_black_24px.svg"></md-icon>
                     <p>Test Result Summary</p>
                 </md-list-item>
-                <md-list-item ng-click="console.log('here')">
+                <md-list-item ng-click="menuSelect('pastTest')">
                     <md-icon md-svg-icon="media/images/ic_view_list_black_24px.svg"></md-icon>
                     <p>Past Test Reports</p>
                 </md-list-item>
             </md-list>
             <md-toolbar class="md-primary md-hue-1">
-                <h1  class="md-toolbar-tools ">Water Tests</h1>
+                <h1  class="dash-element md-toolbar-tools ">Setup</h1>
             </md-toolbar>
             <md-list>
                 <md-list-item ng-click="console.log('here')">
-                    <md-icon md-svg-icon="media/images/ic_assignment_black_24px.svg"></md-icon>
-                    <p>Record New Test Results</p>
+                    <md-icon md-svg-icon="media/images/lab.svg"></md-icon>
+                    <p>Setup Tests</p>
                 </md-list-item>
                 <md-list-item ng-click="console.log('here')">
-                    <md-icon md-svg-icon="media/images/ic_insert_chart_black_24px.svg"></md-icon>
-                    <p>Test Result Summary</p>
+                    <md-icon md-svg-icon="media/images/droplet.svg"></md-icon>
+                    <p>Setup Tanks</p>
                 </md-list-item>
                 <md-list-item ng-click="console.log('here')">
-                    <md-icon md-svg-icon="media/images/ic_view_list_black_24px.svg"></md-icon>
-                    <p>Past Test Reports</p>
+                    <md-icon md-svg-icon="media/images/user.svg"></md-icon>
+                    <p>Setup User</p>
                 </md-list-item>
             </md-list>
         </md-sidenav>
+    </section>
 </div>
+
 

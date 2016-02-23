@@ -1,9 +1,15 @@
 app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
-        $scope.variable = "HEYYYYY"
+        $scope.something = "false";
         $scope.toggleRight = buildToggler('right');
         $scope.isOpenRight = function(){
             return $mdSidenav('right').isOpen();
+        };
+        $scope.menuSelection= false;
+
+        $scope.changeSomething = function(){
+            $scope.something = !$scope.something;
+            console.log($scope.something);
         };
         /**
          * Supplies a function that will continue to operate until the
@@ -27,6 +33,7 @@ app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log) {
          */
         function buildDelayedToggler(navID) {
             return debounce(function() {
+                $scope.something = true;
                 $mdSidenav(navID)
                     .toggle()
                     .then(function () {
@@ -38,7 +45,9 @@ app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log) {
             return function() {
                 $mdSidenav(navID)
                     .toggle()
+                    .isLockedOpen()
                     .then(function () {
+                        $mdSidenav(navID).isLockedOpen()
                         $log.debug("toggle " + navID + " is done");
                     });
             }
@@ -49,6 +58,11 @@ app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log) {
             .then(function () {
                 $log.debug("close LEFT is done");
             });
+    };
+
+    $scope.menuSelect = function(select){
+        $scope.close();
+        $scope.menuSelection = select;
     };
 
     //$scope.close = function () {

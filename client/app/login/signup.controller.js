@@ -1,4 +1,4 @@
-app.controller('SignUpCTRL', function($scope,$mdDialog, $mdMedia, locals, Auth, $rootScope){
+app.controller('SignUpCTRL', function($scope,$mdDialog, $mdMedia, locals, Auth, $rootScope, $state){
 
 
     $scope.gLogin = function() {
@@ -26,6 +26,10 @@ app.controller('SignUpCTRL', function($scope,$mdDialog, $mdMedia, locals, Auth, 
             console.log(authData);
         }
     });
+
+    $scope.submitLogin = function(){
+        $state.go('dashboard')
+    };
 
 
     $scope.active = locals.pushed;

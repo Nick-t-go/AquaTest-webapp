@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var app = express();
 var port = process.env.PORT || 3000;
 
-var dbURI = 'mongodb://localhost:27017/quickApp';
+var dbURI = 'mongodb://localhost:27017/aquatest';
 var db = mongoose.connect(dbURI);
 
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, '../node_modules')));
 app.use(express.static(path.join(__dirname, '../client')));
 
 
-app.use('/api/customer', require('./routes'));
+app.use('/api/user', require('./routes'));
 
 app.use(function(req, res, next){
     if (path.extname(req.path).length > 0){

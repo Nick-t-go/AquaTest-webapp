@@ -4,13 +4,18 @@ app.factory("Demo", function($firebaseArray, $firebaseAuth, $firebaseObject) {
         addNewUser: function(user){
             var ref = new Firebase('https://domemonitor.firebaseio.com/demo');
             var authObject = $firebaseAuth(ref);
-            return authObject.$createUser({email: 'demo@demo.com',password: 'demodemo'})
+            return authObject.$createUser({email: user+'@demo.com',password: 'demodemo'})
                 .then(function(userData) {
-                    console.log("User " + userData.uid + " created successfully!");
+                    return userData
                 })
                 .catch(function(error) {
                     console.error("Error: ", error);
                 });
+        },
+
+        getAuth: function () {
+            var usersRef = new Firebase("https://domemonitor.firebaseio.com/demo");
+            return $firebaseAuth(usersRef);
         },
 
         init: function (uid, credItem) {

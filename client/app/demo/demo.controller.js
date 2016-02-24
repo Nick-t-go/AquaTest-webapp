@@ -1,4 +1,4 @@
-app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log) {
+app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log, $rootScope) {
         $scope.toggleLeft = buildDelayedToggler('left');
         $scope.something = "false";
         $scope.toggleRight = buildToggler('right');

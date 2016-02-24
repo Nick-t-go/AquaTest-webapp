@@ -1,10 +1,35 @@
 /**
  * Created by uzer-y on 2/3/16.
  */
-app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia){
+app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia, Demo, $state, $rootScope, $mdToast){
 
 
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+
+    $scope.randomName = Math.random().toString(36).substring(7) + new Date().getTime();
+
+    $scope.toDemo = function(){
+        return Demo.addNewUser($scope.randomName)
+            .then(function(data){
+                return Demo.getAuth().$authWithPassword({email: $scope.randomName+'@demo.com',password: 'demodemo'})
+                    .then(function(authData){
+                        $rootScope.demoUser = authData;
+                        $rootScope.demoAuthData = authData;
+                        console.log("client", authData);
+                        Demo.loadDefaults(authData.uid);
+                        $state.go('demo');
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .content('Enjoy the Demo!')
+                                .position('top right')
+                                .theme("success-toast")
+                                .hideDelay(3000)
+                        );
+                    });
+            });
+    };
+
+
 
 
     $scope.showTabDialog = function(ev, button) {

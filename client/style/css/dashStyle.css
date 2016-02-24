@@ -1,4 +1,13 @@
 .dash-element {
   font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif; }
 
+.test-container {
+  padding: 25px; }
+
+.test-container .test-title {
+  padding: 10px; }
+
+.test-container .test-slider {
+  border-radius: 40px; }
+
 /*# sourceMappingURL=dashStyle.css.map */

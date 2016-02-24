@@ -1,7 +1,7 @@
 /**
  * Created by uzer-y on 2/3/16.
  */
-app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia, Demo, $state, $rootScope, $mdToast){
+app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia, Demo, $state, $rootScope, $mdToast, $cookies){
 
 
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
@@ -13,8 +13,8 @@ app.controller('loginCTRL', function($scope,$mdDialog, $mdMedia, Demo, $state, $
             .then(function(data){
                 return Demo.getAuth().$authWithPassword({email: $scope.randomName+'@demo.com',password: 'demodemo'})
                     .then(function(authData){
-                        $rootScope.demoUser = authData;
-                        $rootScope.demoAuthData = authData;
+                        $cookies.putObject('demoUser', authData);
+                        $cookies.putObject('demoAuthData', authData);
                         console.log("client", authData);
                         Demo.loadDefaults(authData.uid);
                         $state.go('demo');

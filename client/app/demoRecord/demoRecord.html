@@ -4,26 +4,33 @@
         <md-input-container style="margin-right: 10px;">
             <label>Select</label>
             <md-select ng-model="selectedTank">
-                <md-option ng-repeat="tank in tanks" value="{{tank.name}}">{{tank.name}}</md-option>
+                <md-option ng-repeat="tank in tanks" ng-value="{{tank}}">{{tank.name}}</md-option>
             </md-select>
         </md-input-container>
     </div>
-    <h3 ng-if="selectedTank" ng-cloak>You may now enter your test results for {{selectedTank}}.</h3>
+    <h3 ng-if="selectedTank" ng-cloak>You may now enter your test results for <mark>{{selectedTank.name}}</mark></h3>
 </div>
 
 
 
 
 
-<div ng-if="selectedTank" layout="column" ng-repeat="test in tests" class="test-container">
+<div ng-if="selectedTank">
+     <div layout="column" ng-repeat="test in tests" class="test-container">
         <div layout="column"  layout-align="center center">
             <div div class="test-title">{{test.type}}</div>
         </div>
         <div layout="row"  layout-align="space-around center">
-            <md-slider  class="test-slider" ng-style="{'background-image': 'linear-gradient(to right,' +test.colors.join(',')+ ')'}" flex  aria-label="{{test.type}}" ng-model="test.value"  min="{{test.min}}" max="{{test.max}}" step="{{test.step}}" >
+            <md-slider aria-label="red" class="test-slider md-primary" ng-style="{'background-image': 'linear-gradient(to right,' +test.colors.join(',')+ ')'}" flex  aria-label="{{test.type}}" ng-model="test.value"  min="{{test.min}}" max="{{test.max}}" step="{{test.step}}" >
             </md-slider>
             <div flex="5" layout-padding >
                 <input flex layout-padding type="number" ng-model="test.value" name="{{test.type}}" min="{{test.min}}" max="{{test.max}}" step="{{test.step}}" value="{{test.value}}" ng-model="test.value" aria-label="{{test.type}}" aria-controls="red-slider">
             </div>
         </div>
     </div>
+    <div layout="row" layout-align="center center">
+        <md-button ng-click="submitForm(selectedTank, tests)"class="md-primary">Submit</md-button>
+        <md-button class="md-warn">Cancel</md-button>
+    </div>
+</div>
+

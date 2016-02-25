@@ -1,10 +1,9 @@
-app.controller('demoRecordCTRL',  function($scope, $timeout,  $mdSidenav, $log, Demo, $rootScope, $cookies) {
+app.controller('demoRecordCTRL',  function($scope, $mdToast,  $mdSidenav, $log, Demo, $rootScope, $cookies) {
     $scope.tanks = [];
     $scope.tests = [];
     $scope.clicked = false;
 
     var demoUser = $cookies.getObject('demoUser');
-    console.log(demoUser);
 
 
     Demo.getTestTypes(demoUser.uid)
@@ -20,26 +19,31 @@ app.controller('demoRecordCTRL',  function($scope, $timeout,  $mdSidenav, $log, 
 
 
     $scope.submitForm = function(tank, testResults) {
-        console.log(typeof tank);
 
-        //$scope.time = new Date().getTime();
-        //$scope.clicked = true;
-        //testsResults.forEach(function (testResult) {
-        //    Demo.addToFire(tank, testResult.type, testResult.value, $scope.time, demoUser.uid);
-        //});
-        //
-        //Demo.recordTime($scope.time,$rootScope.user.uid, tank);
-        //
-        ////$rootScope.userCredentials.feed.push({subCat:"watertest", category:"watertests",action:"create", value: tank.$id, detail:"New Test Results Recorded", date: $scope.time});
-        ////$rootScope.userCredentials.$save();
-        //
-        //$mdToast.show(
-        //    $mdToast.simple()
-        //        .content('Test Successfully Submitted!')
-        //        .position('top right')
-        //        .theme("success-toast")
-        //        .hideDelay(3000)
-        //);
+        console.log('tank:', tank, 'testResults:', testResults)
+
+        $scope.time = new Date().getTime();
+        $scope.clicked = true;
+        testResults.forEach(function (testResult) {
+            console.log(tank, testResult.type, testResult.value, $scope.time, demoUser.uid)
+            Demo.addToFire(tank, testResult.type, testResult.value, $scope.time, demoUser.uid);
+        });
+
+        Demo.recordTime($scope.time,demoUser.uid, tank);
+
+        //$rootScope.userCredentials.feed.push({subCat:"watertest", category:"watertests",action:"create", value: tank.$id, detail:"New Test Results Recorded", date: $scope.time});
+        //$rootScope.userCredentials.$save();
+
+        $mdToast.show(
+            $mdToast.simple()
+                .content('Test Successfully Submitted!')
+                .position('top right')
+                .theme("success-toast")
+                .hideDelay(3000)
+        )
+            .then(function(){
+            console.log('shown')
+        });
 
 
         //$cordovaToast.show("New Report Submitted", 'long', 'top').then(function(success) {
@@ -51,6 +55,20 @@ app.controller('demoRecordCTRL',  function($scope, $timeout,  $mdSidenav, $log, 
         //});
 
     };
+
+    $scope.cancel=function(){
+        $mdToast.show(
+            $mdToast.simple()
+                .content('Test Successfully Submitted!')
+                .position('top right')
+                .theme("success-toast")
+                .hideDelay(300000)
+        )
+            .then(function(){
+                console.log('shown')
+            });
+
+    }
 
 
 

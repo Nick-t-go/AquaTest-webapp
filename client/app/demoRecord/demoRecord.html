@@ -20,17 +20,17 @@
         <div layout="column"  layout-align="center center">
             <div div class="test-title">{{test.type}}</div>
         </div>
-        <div layout="row"  layout-align="space-around center">
-            <md-slider aria-label="red" class="test-slider md-primary" ng-style="{'background-image': 'linear-gradient(to right,' +test.colors.join(',')+ ')'}" flex  aria-label="{{test.type}}" ng-model="test.value"  min="{{test.min}}" max="{{test.max}}" step="{{test.step}}" >
+        <div layout="row"  layout-align="space-around center" >
+            <md-slider aria-label="red" class="test-slider md-primary" ng-style="{'background-image': 'linear-gradient(to right,' +test.colors.join(',')+ ')'}" flex  aria-label="{{test.type}}" ng-model="test.value"  min="0" max="{{test.max}}" step="{{test.step}}" >
             </md-slider>
             <div flex="5" layout-padding >
-                <input flex layout-padding type="number" ng-model="test.value" name="{{test.type}}" min="{{test.min}}" max="{{test.max}}" step="{{test.step}}" value="{{test.value}}" ng-model="test.value" aria-label="{{test.type}}" aria-controls="red-slider">
+                <input flex layout-padding type="number" ng-model="test.value" name="{{test.type}}" min="0" max="{{test.max}}" step="{{test.step}}" value="{{test.value}}  || {{test.min}}" ng-model="test.value" aria-label="{{test.type}}" aria-controls="red-slider">
             </div>
         </div>
     </div>
     <div layout="row" layout-align="center center">
         <md-button ng-click="submitForm(selectedTank, tests)"class="md-primary">Submit</md-button>
-        <md-button class="md-warn">Cancel</md-button>
+        <md-button ng-click="cancel()" class="md-warn">Cancel</md-button>
     </div>
 </div>
 

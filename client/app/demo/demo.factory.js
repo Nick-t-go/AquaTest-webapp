@@ -44,7 +44,11 @@ app.factory("Demo", function($firebaseArray, $firebaseAuth, $firebaseObject) {
                 'tank': tank.$id,
                 'test': test,
                 'uid':uid
-            });
+            }).then(function(){
+                console.log('yep')
+            }).catch(function(error){
+                console.log(error)
+            })
         },
 
 
@@ -93,7 +97,7 @@ app.factory("Demo", function($firebaseArray, $firebaseAuth, $firebaseObject) {
         getTestTypes: function (uid) {
             console.log(uid)
             var ref = new Firebase('https://domemonitor.firebaseio.com/demo/'+uid+'/testTypes');
-            var testTypeObject = $firebaseObject(ref);
+            var testTypeObject = $firebaseArray(ref);
             return testTypeObject.$loaded()
                 .then(function(data){
                     return testTypeObject;

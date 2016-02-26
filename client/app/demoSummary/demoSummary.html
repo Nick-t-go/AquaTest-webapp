@@ -1,0 +1,25 @@
+<div layout="column" layout-align="center center">
+    <h2 class="md-title">First Pick a Tank  </h2>
+    <div layout="row" >
+        <md-input-container style="margin-right: 10px;">
+            <label>Select</label>
+            <md-select ng-model="selectedTank">
+                <md-option ng-repeat="tank in tanks" ng-value="{{tank}}">{{tank.name}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+</div>
+<div layout="column" layout-align="center center">
+    <h2 class="md-title">Next Pick A Test  </h2>
+    <div layout="row" >
+        <md-input-container style="margin-right: 10px;">
+            <label>Select</label>
+            <md-select ng-model="selectedTest" md-on-close="summarize(selectedTank,selectedTest)">
+                <md-option ng-repeat="test in tests" ng-value="{{test}}">{{test.type}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+</div>
+
+{{data}}
+

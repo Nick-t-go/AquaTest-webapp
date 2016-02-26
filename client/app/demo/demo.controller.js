@@ -63,6 +63,7 @@ app.controller('demoCTRL', function($scope, $timeout, $mdSidenav, $log, $rootSco
     $scope.menuSelect = function(select){
         $scope.close();
         $scope.menuSelection = select;
+        $scope.$digest()
     };
 
     //$scope.close = function () {

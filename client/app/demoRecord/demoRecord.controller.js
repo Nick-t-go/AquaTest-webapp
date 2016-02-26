@@ -44,16 +44,6 @@ app.controller('demoRecordCTRL',  function($scope, $mdToast,  $mdSidenav, $log, 
             .then(function(){
             console.log('shown')
         });
-
-
-        //$cordovaToast.show("New Report Submitted", 'long', 'top').then(function(success) {
-        //    console.log("The toast was shown");
-        //    $scope.clicked = false;
-        //}, function (error) {
-        //    console.log("The toast was not shown due to " + error);
-        //    $scope.clicked = false;
-        //});
-
     };
 
     $scope.cancel=function(){

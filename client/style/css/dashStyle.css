@@ -10,4 +10,8 @@
 .test-container .test-slider {
   border-radius: 40px; }
 
+.report-item {
+  height: 50px;
+  border: 1px solid black; }
+
 /*# sourceMappingURL=dashStyle.css.map */

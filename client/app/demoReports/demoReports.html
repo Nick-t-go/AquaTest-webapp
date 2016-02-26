@@ -1,0 +1,36 @@
+<div layout="column" layout-align="center center">
+    <h2 class="md-title">First pick a tank  </h2>
+    <div layout="row" >
+        <md-input-container style="margin-right: 10px;">
+            <label>Select</label>
+            <md-select ng-model="selectedTank">
+                <md-option ng-repeat="tank in tanks" ng-value="{{tank}}">{{tank.name}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+</div>
+<div layout="column" layout-align="center center" ng-if="selectedTank">
+    <h2 class="md-title">Now Choose a Report Date for <mark>{{selectedTank.name}}</mark></h2>
+    <div layout="row" >
+        <md-input-container style="margin-right: 10px;">
+            <label>Select</label>
+            <md-select ng-model="selectedDate" md-on-open="filterDates(selectedTank)"  md-on-close ="getReport(selectedTank, selectedDate)">
+                <md-option ng-repeat="date in filteredDates" ng-value="{{date}}">{{date.time | date:'yyyy-MM-dd HH:mm'}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div ng-if="selectedDate">
+        <h3 ng-if="selectedDate" ng-cloak>Here is the report for <mark>{{selectedDate.time | date:'yyyy-MM-dd HH:mm'}}</mark></h3>
+        <div ng-repeat="test in reports" >
+            <div layout="row" class="report-item" layout-align="space-around center">
+                <div >{{test.test}}</div>
+                <div >{{test.val}}</div>
+            </div>
+        </div>
+        <div layout="row" layout-align="space-around center">
+            <md-button ng-click="submitForm(selectedTank, tests)"class="md-primary">Submit</md-button>
+            <md-button ng-click="console()" class="md-warn">Cancel</md-button>
+        </div>
+    </div>
+</div>
+

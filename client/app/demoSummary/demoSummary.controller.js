@@ -25,13 +25,11 @@ app.controller('demoSummaryCTRL',  function($scope, $mdToast,  $mdSidenav, $log,
         }];
 
     $scope.summarize = function(tank, testType){
-        console.log(tank, testType, demoUser.uid);
         Demo.getOneTest(tank, testType, demoUser.uid)
             .then(function(result){
                 $scope.data[0].values = result.map(function(test){
                     return [test.date, parseFloat(test.val)];
                 });
-                console.log($scope.data[0].values)
             });
     };
 

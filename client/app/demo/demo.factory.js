@@ -77,7 +77,6 @@ app.factory("Demo", function($firebaseArray, $firebaseAuth, $firebaseObject) {
             return array.$loaded()
                 .then(function(){
                     return array.filter(function(el){
-                        console.log('el.tank:', el.tank,tank.$id, "el.test", el.test, testType.type);
                         return el.tank === tank.$id && el.test === testType.type;
                     });
                 });
